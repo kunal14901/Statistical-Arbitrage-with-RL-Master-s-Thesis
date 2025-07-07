@@ -80,8 +80,8 @@ This research explores **adaptive statistical arbitrage** by integrating **deep 
 
 **Kunal Kumar**  
 Final Year | Mathematics & Computing, IIT Kharagpur  
-📧 [iknir14901@example.com]  
-🔗 [[LinkedIn](https://www.linkedin.com/in/kunal-kumar-9aa708200/)
+📧 [iknir14901@gmail.com]  
+🔗 [https://www.linkedin.com/in/kunal-kumar-9aa708200/]
 
 ---
 
