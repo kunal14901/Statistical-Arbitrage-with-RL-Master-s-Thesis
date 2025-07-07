@@ -38,11 +38,11 @@ This research explores **adaptive statistical arbitrage** by integrating **deep 
 
 ## 📊 Results (Out-of-Sample Backtest)
 
-| Strategy            | Annual Return | Sharpe Ratio | Max Drawdown | Trades | Avg Holding Period |
+| Strategy            | Annual Return | Sharpe Ratio | Max Drawdown | Trades |  Avg Holding Period |
 |---------------------|---------------|--------------|--------------|--------|---------------------|
 | Ornstein-Uhlenbeck  | 12.1%         | 0.88         | 18.4%        | 290    | ~4 Days             |
 | Z-Score Distance    | 10.6%         | 0.79         | 20.1%        | 250    | ~3 Days             |
-| **RL (DQN + LSTM)** | **19.8%**     | **1.26**     | **11.7%**     | 510    | ~2 Days             |
+| RL (DQN + LSTM)     | **19.8%**     | 1.26         | 11.7%**      | 510    | ~2 Days             |
 
 > 📈 **Insight**: The RL-based model outperformed classical methods by **+63% in returns** and **–36% in drawdown**, thanks to its ability to learn from and adapt to changing market conditions.
 
