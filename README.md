@@ -1,4 +1,3 @@
-Here's a well-structured `README.md` for your project, summarizing your work on statistical arbitrage strategies with deep reinforcement learning:
 
 ```markdown
 # Statistical Arbitrage with Deep Reinforcement Learning
