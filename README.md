@@ -1,56 +1,69 @@
-Here's the direct content for your `README.md` file:
-
-```markdown
 # Advanced Statistical Arbitrage with Reinforcement Learning
 
-## 📌 Overview
-Master's thesis project developing adaptive statistical arbitrage strategies by combining:
-- Classical mean-reversion models (Ornstein-Uhlenbeck, Distance Method)
-- Deep Reinforcement Learning (DQN with LSTM)
-- Market regime detection
+## Project Overview
+This repository contains my Master's thesis work on developing and benchmarking advanced statistical arbitrage strategies by integrating deep reinforcement learning with classical mean-reversion models. The project was conducted at the Indian Institute of Technology, Kharagpur under the guidance of Prof. Geetanjali Panda.
 
-**Key Innovation:** RL agent that dynamically adjusts trading policies across volatile/trending/sideways markets.
+The objective was to construct dynamic, mean-reverting portfolios that adapt across varying market regimes while improving risk-adjusted returns compared to traditional approaches.
 
-## 🚀 Performance Highlights (Out-of-Sample)
-| Strategy          | Return (%) | Sharpe | Max DD (%) |
-|-------------------|-----------:|-------:|-----------:|
-| OU Process        | 12.1       | 0.88   | 18.4       |
-| Distance Method   | 10.6       | 0.79   | 20.1       |
-| **RL (DQN+LSTM)** | **19.8**   | **1.26** | **11.7** |
+## Key Features
 
-## 🛠️ Implementation
+- **Hybrid Approach**: Combines classical statistical arbitrage techniques with modern deep reinforcement learning
+- **Market Regime Adaptation**: Models dynamically adjust to volatile, trending, and sideways market conditions
+- **Comprehensive Benchmarking**: Compares RL-based strategy against traditional Ornstein-Uhlenbeck and Distance Method approaches
+- **Enhanced Performance**: Achieved superior returns with lower drawdowns through learned policy behavior
+
+## Methodology
+
 ### Asset Selection
-```python
-# Cointegration test
-from statsmodels.tsa.stattools import coint
-score, pvalue, _ = coint(asset1, asset2)
+- Cointegration analysis to identify mean-reverting pairs
+- Hurst exponent calculation to confirm mean-reversion properties
+- Correlation analysis for pair selection
+
+### Classical Strategies
+1. **Ornstein-Uhlenbeck Process**: 
+   - Models spread as mean-reverting stochastic process
+   - Implements optimal thresholds based on process parameters
+
+2. **Distance Method (z-score)**:
+   - Traditional Bollinger-band like approach
+   - Trades based on standardized spread deviations
+
+### Reinforcement Learning Approach
+- **Deep Q-Network (DQN) with LSTM layers**:
+  - State space: Normalized spread values, technical indicators, market regime features
+  - Action space: Entry/exit decisions and position sizing
+  - Reward function: Risk-adjusted returns with penalties for drawdowns
+- **Adaptive Policy Learning**:
+  - Learns optimal trading rules without fixed thresholds
+  - Adjusts to changing market conditions through experience replay
+
+## Results (Out-of-Sample Backtest)
+
+| Strategy          | Annual Return (%) | Sharpe Ratio | Max Drawdown (%) | Trades | Avg Holding (Days) |
+|-------------------|------------------:|-------------:|-----------------:|-------:|-------------------:|
+| OU Process        | 12.1              | 0.88         | 18.4             | 290    | ~4                 |
+| Distance Method   | 10.6              | 0.79         | 20.1             | 250    | ~3                 |
+| RL (DQN+LSTM)     | **19.8**          | **1.26**     | **11.7**         | 510    | ~2                 |
+
+## Key Insights
+- The RL-based model outperformed traditional methods by **63%** in annual returns
+- Achieved **36% lower maximum drawdown** compared to classical approaches
+- Demonstrated superior adaptability in non-stationary market environments
+- More frequent trades with shorter holding periods captured mean-reversion opportunities more effectively
+
+## Repository Structure
+```
+├── data/                   # Sample datasets and preprocessing scripts
+├── classical_strategies/    # OU Process and Distance Method implementations
+├── rl_model/               # DQN with LSTM implementation and training scripts
+├── backtesting/            # Performance evaluation framework
+├── results/                # Pre-computed results and visualizations
+├── requirements.txt        # Python dependencies
+└── thesis.pdf             # Complete thesis document
 ```
 
-### RL Framework
-```python
-# DQN-LSTM Architecture
-model = Sequential([
-    LSTM(64, input_shape=(lookback, n_features)),
-    Dense(32, activation='relu'),
-    Dense(n_actions)
-])
-```
-
-## 📂 Repository Structure
-```
-├── data/            # Historical price data
-├── notebooks/       # Jupyter notebooks for analysis
-│   ├── 1_pair_selection.ipynb
-│   ├── 2_classical_strategies.ipynb
-│   └── 3_rl_training.ipynb
-├── src/
-│   ├── classical/   # OU and Distance Method
-│   └── rl/          # DQN implementation
-└── results/         # Backtest reports
-```
-
-## ⚙️ Setup
-1. Clone repo:
+## Installation
+1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/stat-arb-rl.git
    cd stat-arb-rl
@@ -61,29 +74,39 @@ model = Sequential([
    pip install -r requirements.txt
    ```
 
-## 🏎️ Quick Start
-```bash
-# Run classical strategies
-python src/classical/ou_process.py --pair AAPL_MSFT
+## Usage
+1. Preprocess data:
+   ```bash
+   python data/preprocess.py
+   ```
 
-# Train RL agent
-python src/rl/train.py --lookback 30 --episodes 1000
-```
+2. Run classical strategies:
+   ```bash
+   python classical_strategies/ou_process.py
+   python classical_strategies/distance_method.py
+   ```
 
-## 📊 Sample Results
-![Equity Curve](results/equity_curve.png)
+3. Train RL model:
+   ```bash
+   python rl_model/train.py
+   ```
 
-## 📜 Citation
-```bibtex
-@mastersthesis{yourthesis2025,
-  title={Advanced Statistical Arbitrage with RL},
-  author={Your Name},
-  year={2025},
-  school={IIT Kharagpur}
-}
-```
+4. Evaluate performance:
+   ```bash
+   python backtesting/compare_strategies.py
+   ```
 
-## 📬 Contact
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)]([your-linkedin](https://www.linkedin.com/in/kunal-kumar-9aa708200/))
-[![Email](https://img.shields.io/badge/Email-Contact-red)](iknir1234@email.com)
-```
+## Dependencies
+- Python 3.8+
+- NumPy, Pandas
+- Scikit-learn, Statsmodels
+- TensorFlow/Keras
+- Matplotlib, Seaborn
+
+## Future Work
+- Incorporate additional market regime indicators
+- Experiment with other RL algorithms (PPO, SAC)
+- Extend to multi-asset portfolios
+- Implement online learning for real-time adaptation
+
+For questions or collaborations, please contact [iknir1234@gmail.com] or connect on [https://www.linkedin.com/in/kunal-kumar-9aa708200/].
