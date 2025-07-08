@@ -1,5 +1,7 @@
 
 
+---
+
 ````markdown
 # 📉 Robust Glasso for High-Dimensional Portfolio Selection
 
@@ -13,18 +15,18 @@ License: MIT
 
 ## 🔍 Overview
 
-This project implements a robust version of Graphical Lasso (Glasso) for portfolio optimization in high-dimensional financial datasets. The method enhances classical Glasso with robust statistics, making it resistant to outliers and better suited for volatile market conditions.
+This project implements a robust version of Graphical Lasso (Glasso) for portfolio optimization in high-dimensional financial datasets. The model is designed to be resistant to outliers and better suited for volatile or anomalous market behavior.
 
 ---
 
 ## 🚀 Key Features
 
-- Robust covariance estimation using MCD and outlier-resistant techniques
-- Sparse inverse covariance matrix using L1 regularization
-- Handles large-scale asset universes (100–1000+ assets)
-- GAN-enhanced alternative tested against Glasso variants
-- Performance-tested under simulated crisis scenarios
-- Visualization of asset networks and risk clustering
+- Robust covariance estimation using MCD and outlier-resistant statistics  
+- Sparse inverse covariance matrix using L1 regularization  
+- Handles large-scale asset universes (100–1000+ assets)  
+- GAN-enhanced alternative tested against traditional Glasso models  
+- Performance-tested under simulated market crisis scenarios  
+- Visualization of asset networks and risk clusters
 
 ---
 
@@ -72,27 +74,19 @@ weights = optimizer.maximize_sharpe()
 
 ## 📚 Documentation
 
-Complete methodology, mathematical formulations, and testing results are detailed in the thesis report (not publicly available).
-
----
-
-## 🔗 Related Work
-
-Also see the companion Master's Thesis:
-[📊 Statistical Arbitrage with Deep Reinforcement Learning](https://github.com/yourusername/stat-arb-rl)
-Adaptive mean-reversion strategies using LSTM-based DQN models under dynamic market regimes.
+Full documentation and detailed methodology are included in the academic thesis (not publicly shared due to institutional restrictions).
 
 ---
 
 ## 🤝 Contributing
 
-Academic collaborations and feedback are welcome through IIT Kharagpur institutional channels.
+Collaborations and academic feedback are welcome through official IIT Kharagpur channels.
 
 ---
 
 ## 📫 Contact
 
-Kunal Kumar
+**Kunal Kumar**
 Final Year | Mathematics & Computing | IIT Kharagpur
 Email: [iknir1234@gmail.com](mailto:iknir1234@gmail.com)
 LinkedIn: [https://www.linkedin.com/in/kunal-kumar-9aa708200/](https://www.linkedin.com/in/kunal-kumar-9aa708200/)
@@ -101,8 +95,8 @@ LinkedIn: [https://www.linkedin.com/in/kunal-kumar-9aa708200/](https://www.linke
 
 ## 📜 License
 
-This project is licensed under the MIT License.
-Note: Research content is part of academic work submitted to IIT Kharagpur and remains confidential.
+This project is licensed under the **MIT License**.
+Research content is part of a confidential academic submission at IIT Kharagpur.
 
 ```
-```
+
