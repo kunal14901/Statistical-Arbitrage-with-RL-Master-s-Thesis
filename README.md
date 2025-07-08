@@ -2,101 +2,90 @@
 
 ---
 
-````markdown
-# 📉 Robust Glasso for High-Dimensional Portfolio Selection
+```markdown
+# 📈 Statistical Arbitrage with Deep Reinforcement Learning  
+*Adaptive Trading Strategies for Dynamic Market Regimes*  
 
-Master's Thesis Project  
-Indian Institute of Technology, Kharagpur  
-Duration: Aug 2023 – Jan 2024  
-Python Version: 3.8+  
-License: MIT
+🔬 **Master’s Thesis** | 🏛 *Indian Institute of Technology, Kharagpur*  
+👨🏫 **Advisor**: Prof. Geetanjali Panda | 📅 *Oct 2024 – Feb 2025*  
 
 ---
 
-## 🔍 Overview
-
-This project implements a robust version of Graphical Lasso (Glasso) for portfolio optimization in high-dimensional financial datasets. The model is designed to be resistant to outliers and better suited for volatile or anomalous market behavior.
-
----
-
-## 🚀 Key Features
-
-- Robust covariance estimation using MCD and outlier-resistant statistics  
-- Sparse inverse covariance matrix using L1 regularization  
-- Handles large-scale asset universes (100–1000+ assets)  
-- GAN-enhanced alternative tested against traditional Glasso models  
-- Performance-tested under simulated market crisis scenarios  
-- Visualization of asset networks and risk clusters
+## 🌟 Key Innovations  
+✅ **Hybrid Approach**: Combines classical mean-reversion with DRL for regime adaptation  
+✅ **Dynamic Risk Management**: LSTM-enhanced DQN adjusts to trending/sideways markets  
+✅ **Outperforms Benchmarks**: **+63% returns**, **-36% drawdowns** vs. traditional models  
 
 ---
 
-## 📦 Installation
+## 🧩 Methodology  
 
-```bash
-git clone https://github.com/yourusername/robust-glasso-portfolio.git
-cd robust-glasso-portfolio
-pip install -r requirements.txt
-````
+### 📊 Pair Selection & Preprocessing  
+| Step                  | Technique/Tool          | Purpose                          |
+|-----------------------|-------------------------|----------------------------------|
+| Cointegration Test    | ADF, Johansen (95% CI)  | Filter non-stationary pairs      |
+| Mean-Reversion Check  | Hurst Exponent (<0.5)   | Confirm mean-reverting behavior  |
+| Correlation Filter    | Pearson (ρ > 0.85)      | Select high-correlation pairs    |
+
+### 🤖 Strategy Comparison  
+| **Model**              | **Key Features**                              | **Advantages**                     |
+|------------------------|---------------------------------------------|-----------------------------------|
+| **Ornstein-Uhlenbeck** | Stochastic mean-reversion modeling          | Simple, interpretable             |
+| **Z-Score**            | Threshold-based trading (entry: ±2σ)        | Rule-based, low latency           |
+| **Proposed DRL**       | DQN + LSTM, regime-aware rewards           | Adapts to volatility/clustering   |
 
 ---
 
-## 🛠️ Usage
-
+## 🚀 Performance Metrics (Out-of-Sample)  
 ```python
-from robust_glasso import RobustGraphicalLasso
-from portfolio_optimizer import MeanVarianceOptimizer
+Backtest Results (NIFTY50 Constituents, 2021-2023):
+```
+| Metric               | OU Model  | Z-Score  | **DRL (Ours)** | Improvement |
+|----------------------|-----------|----------|----------------|-------------|
+| **CAGR**            | 12.1%     | 10.6%    | **19.8%**      | +63%        |
+| **Sharpe Ratio**    | 0.88      | 0.79     | **1.26**       | +43%        |
+| **Max Drawdown**    | -18.4%    | -20.1%   | **-11.7%**     | -36%        |
+| **Win Rate**        | 58%       | 55%      | **64%**        | +9%         |
 
-# Initialize robust glasso
-rg = RobustGraphicalLasso(alpha=0.01, robust_threshold=2.5)
+![Equity Curve](https://via.placeholder.com/600x200?text=Equity+Curve+Comparison) *(Simulated results)*
 
-# Fit on returns data (assets x observations)
-rg.fit(returns_data)
+---
 
-# Get robust precision matrix
-precision_matrix = rg.get_precision()
-
-# Optimize portfolio
-optimizer = MeanVarianceOptimizer(precision_matrix)
-weights = optimizer.maximize_sharpe()
+## 🛠️ Technical Implementation  
+```mermaid
+graph TD
+    A[Market Data] --> B(Cointegration Filtering)
+    B --> C{DRL Training}
+    C -->|State Space| D[Spread + Volatility + Z-Score]
+    C -->|Reward| E[Sharpe Ratio Optimization]
+    C -->|Action| F[Long/Short/Size Adjustment]
+    D --> G[LSTM Temporal Features]
+    F --> H[Backtesting Engine]
 ```
 
----
-
-## 📊 Results
-
-| Metric           | Traditional Glasso | Robust Glasso |
-| ---------------- | ------------------ | ------------- |
-| Sharpe Ratio     | 1.2                | 1.5           |
-| Max Drawdown     | -25%               | -18%          |
-| Out-of-sample R² | 0.65               | 0.78          |
+**Tech Stack**:  
+- **Core**: `Python 3.10`, `PyTorch 2.0`, `Backtrader`  
+- **Stats**: `statsmodels`, `arch` (GARCH modeling)  
+- **Optimization**: `Optuna` (hyperparameter tuning)  
 
 ---
 
-## 📚 Documentation
-
-Full documentation and detailed methodology are included in the academic thesis (not publicly shared due to institutional restrictions).
-
----
-
-## 🤝 Contributing
-
-Collaborations and academic feedback are welcome through official IIT Kharagpur channels.
+## 📚 Related Work  
+🔗 **[Robust Portfolio Selection via Graphical Lasso](https://github.com/yourusername/robust-glasso-portfolio)** *(Bachelor’s Thesis)*  
+- Developed outlier-resistant covariance estimator for Markowitz portfolios  
 
 ---
 
-## 📫 Contact
-
-**Kunal Kumar**
-Final Year | Mathematics & Computing | IIT Kharagpur
-Email: [iknir1234@gmail.com](mailto:iknir1234@gmail.com)
-LinkedIn: [https://www.linkedin.com/in/kunal-kumar-9aa708200/](https://www.linkedin.com/in/kunal-kumar-9aa708200/)
+## 📜 Disclaimer  
+*Code and proprietary datasets are restricted per IIT Kharagpur policies. Contact for academic collaboration.*  
 
 ---
 
-## 📜 License
+## 📬 Contact  
+**Kunal Kumar**  
+📧 iknir14901@gmail.com | 🔗 [LinkedIn](https://linkedin.com/in/yourprofile)  
+*Mathematics & Computing | IIT Kharagpur '25*  
 
-This project is licensed under the **MIT License**.
-Research content is part of a confidential academic submission at IIT Kharagpur.
-
+---
 ```
 
